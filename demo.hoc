@@ -1,0 +1,34 @@
+load_file("nrngui.hoc")
+
+gNaF = 0.050
+gNaP = 0.0001
+gKv2 = 0.0001
+gKv3 = 0.010
+gKv4f = 0.002
+gKv4s = 0.001
+gKCNQ = 0.0002
+gCaH = 0.0003
+gHCN = 0.0001
+gSK = 0.0004
+gleak = 0.000068
+
+load_file("celldef.hoc")
+load_file("panel.hoc")
+
+// point processes
+// current injection
+objref stim
+proc set_Iapp() {
+  soma stim = new IClamp(0.5)
+  stim.del = 0
+  stim.dur = 3000
+  stim.amp = 0.0
+}
+
+load_file("demo.ses")
+
+// simulation parameters
+tstop = 3000
+
+
+
